@@ -2,13 +2,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react'
-import { Image, View, Text } from 'react-native';
+import { Image, View, Text, TouchableOpacity } from 'react-native';
 import Login from './src/screen/Login';
 import ProdukMenu from './src/screen/ProdukMenu';
 import Register from './src/screen/Register';
 import SplashScreen from './src/screen/SplashScreen';
 import PesananMenu from './src/screen/PesananMenu';
 import ProfilMenu from './src/screen/ProfilMenu';
+import KelolaKategori from './src/screen/KelolaKategori';
+import KelolaProduk from './src/screen/KelolaProduk';
+import KatalogProduk from './src/screen/KatalogProduk';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -16,7 +19,12 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#EA4335'
+          }
+        }}>
         <Stack.Screen name="SplashScreen" component={SplashScreen} options={{
           headerShown: false
         }} />
@@ -28,6 +36,21 @@ const App = () => {
         }} />
         <Stack.Screen name="ProdukMenu" component={BottomNav} options={{
           headerShown: false
+        }} />
+        <Stack.Screen name="KelolaKategori" component={KelolaKategori} options={{
+          title: "Tambah Kategori",
+          headerTintColor: 'white',
+          headerTitleAlign: 'center'
+        }} />
+        <Stack.Screen name="KelolaProduk" component={KelolaProduk} options={{
+          title: "Tambah Produk",
+          headerTintColor: 'white',
+          headerTitleAlign: 'center'
+        }} />
+        <Stack.Screen name="KatalogProduk" component={KatalogProduk} options={{
+          title: "Katalog Produk",
+          headerTintColor: 'white',
+          headerTitleAlign: 'center'
         }} />
       </Stack.Navigator>
     </NavigationContainer>
